@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Pycharm
+Comment=Pycharm
+Exec=/opt/pycharm-community-2023.3.2/bin/pycharm.sh
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/opt/pycharm-community-2023.3.2/bin/pycharm.png
+StartupNotify=true
