@@ -12,6 +12,8 @@ def main():
     parser = argparse.ArgumentParser(epilog=epilog_text, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('--new', action="store_true",
                         help='Create new environment')
+    parser.add_argument('--packages', action="store_true",
+                        help='Update packages')
 
     parser.add_argument('venv_name', default='../env', type=str, nargs='?',
                         help='Name of virtual environment')
@@ -21,6 +23,8 @@ def main():
     path = Path(venv_name)
     if args.new:
         new(path)
+    if args.packages:
+        custom_packages(path)
     else:
         print('Nothing')
 
@@ -113,7 +117,7 @@ def custom_packages(path):
                        'virtaccl-0.0.0-py3-none-any.whl',
                        'uspas24-0.0.0-py3-none-any.whl']
     custom_packages = [path / '..' / 'setup' / p for p in custom_packages]
-    result = subprocess.run([pip, 'install'] + custom_packages)
+    result = subprocess.run([pip, 'install', '--force-reinstall', '--no-deps'] + custom_packages)
     if result.returncode != 0:
         print(f'Failed to custom packages.')
         return
