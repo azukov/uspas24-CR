@@ -23,7 +23,7 @@ def main():
     path = Path(venv_name)
     if args.new:
         new(path)
-    if args.packages:
+    elif args.packages:
         custom_packages(path)
     else:
         print('Nothing')
@@ -106,7 +106,6 @@ def new(path, python='python3'):
             return
 
         print(f'Installed packages:\n{str(result.stdout, "utf-8")}')
-        print(f'You can activate it by running "source {path}/bin/activate"')
 
     except Exception as e:
         print(f'Failed to create virtual environment: {e}')
