@@ -68,7 +68,10 @@ def new(path, python='python3'):
         contents.insert(i, 'PATH="$VIRTUAL_ENV/bin:/opt/epics/bin/linux-x86_64:$PATH"\n')
         contents.insert(i+1, 'export EPICS_CA_AUTO_ADDR_LIST=NO\n')
         contents.insert(i+2, 'export EPICS_CA_ADDR_LIST=localhost\n')
-        contents.insert(i + 3, 'export USPAS_ENVi=1\n')
+        contents.insert(i + 3, 'export USPAS_ENV=1\n')
+
+        # this will try caget and launch caRepeater if needed
+        contents.insert(i + 4, 'caget X 2> /dev/null\n')
 
         with open(p, "w") as f:
             f.write("".join(contents))
