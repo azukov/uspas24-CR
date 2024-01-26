@@ -1,8 +1,8 @@
 ## USPAS 24 Control Room Accelerator Class 
-### Initial setup 
-Coming soon ...
+Find material on [WIKI](https://github.com/azukov/uspas24-CR/wiki)
+
 ### Available commands
-All scripts exist in ~/uspas24-CR/setup
+All scripts exist in **~/uspas24-CR/setup**
 | Command | Description | 
 | ------ | ------ |
 | update.sh| Updates repository with all neede files, is needed regularly for HW and practice setup. | 
