@@ -8,4 +8,4 @@ All scripts exist in **~/uspas24-CR/setup**
 | update.sh| Updates repository with all neede files, is needed regularly for HW and practice setup. | 
 | update_packages.sh| Updates packages, normally not needed, only if we found a bug. | 
 | reset_env.sh| Creates environment form scratch, normally not needed, only if we environment is messed up witj incompatible packages. | 
-
+| install_pycharm.sh| Installs PyCharm IDE. |
