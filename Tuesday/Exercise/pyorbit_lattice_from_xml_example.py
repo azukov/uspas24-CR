@@ -87,7 +87,7 @@ rf_gaps = accLattice.getRF_Gaps()
 #--- Add the new directory to the PYTHONPATH - from the common local packages
 sys.path.append('../uspas_pylib/')
 
-from aperture_nodes_lib import addPhaseApertureNodes
+from uspas_pylib.aperture_nodes_lib import addPhaseApertureNodes
 addPhaseApertureNodes(accLattice)
 
 #--------------------------------------------
@@ -97,7 +97,7 @@ print ("Start Bunch Generation for MEBT")
 from orbit.bunch_generators import TwissContainer
 from orbit.bunch_generators import WaterBagDist3D, GaussDist3D, KVDist3D
 
-from sns_linac_bunch_generator import SNS_Linac_BunchGenerator
+from uspas_pylib.sns_linac_bunch_generator import SNS_Linac_BunchGenerator
 
 #------ Twiss X,Y  - (alpha,beta,emitt) in beta in meters, emitt [pi*mm*mrad]
 #------ Twiss long - (alpha,beta,emitt) in beta in meters, emitt [pi*m*GeV]
@@ -152,7 +152,7 @@ print ("--------------------------------------")
 #  Let's add BPM Models to all BPM marker-nodes as child-nodes
 #-------------------------------------------------------------
 from orbit.lattice import AccNode
-from bpm_model_node_lib import ModelBPM
+from uspas_pylib.bpm_model_node_lib import ModelBPM
 
 #---- BPM freqiency: MEBT,DTL - 805 MHz, CCL,SCL,HEBT - 402.5MHz
 bpm_frequency = 805.0e+6
@@ -193,7 +193,7 @@ for bpm_model in bpm_model_nodes:
 #-------------------------------------------------------------
 from orbit.py_linac.lattice import LinacTrMatricesContrioller
 
-from matrix_lib import printMatrix
+from uspas_pylib.matrix_lib import printMatrix
 
 #---- let's restore the corrector
 dcv_nodes[0].setField(0.0)
