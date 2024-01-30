@@ -174,7 +174,7 @@ print ("=======The PyORBIT fitting example END==========")
 sys.path.append('../uspas_pylib/')
 
 #---- import fitCosineFunc for fitting
-from harmonic_data_fitting_lib import fitCosineFunc
+from uspas_pylib.harmonic_data_fitting_lib import fitCosineFunc
 
 ((amp,phase_offset,avg_val),scorer) = fitCosineFunc(x_arr,y_arr,show_progress = False)
 print ("(phase_offset,amp,avg_val) = ",(phase_offset,amp,avg_val))
