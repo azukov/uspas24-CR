@@ -24,7 +24,7 @@ from orbit.utils import phaseNearTargetPhaseDeg
 from orbit.core.orbit_utils import Function
 from orbit.utils.fitting import PolynomialFit
 
-from harmonic_data_fitting_lib import fitCosineFunc
+from uspas_pylib.harmonic_data_fitting_lib import fitCosineFunc
 
 #-------------------------------------------------------------------
 #              START of the SCRIPT
