@@ -162,7 +162,7 @@ print ("---------------------------------------")
 #-------------------------------------------
 #---- Now we change all RF phases by +1 deg
 #-------------------------------------------
-rf_phase_shift = 5.0
+rf_phase_shift = -5.0
 for rf_cav in rf_cavs:
 	cav_phase = rf_cav.getPhase()
 	cav_phase_new = cav_phase + rf_phase_shift*math.pi/180.
@@ -172,11 +172,31 @@ for rf_cav in rf_cavs:
 #---- track bunch with new RF phases
 bunch = Bunch()
 bunch_in.copyBunchTo(bunch)
+accLattice.trackDesignBunch(bunch)
+
 accLattice.trackBunch(bunch)
 
+bpm_phases_delta_arr = []
+bpm_pos_arr = []
+print ("----------- After Phase Shift---------")
+print (" BPM    pos[m]   Delta[deg] ")
+for i, bpm_model in enumerate(bpm_model_nodes):
+	bpm_phase = bpm_model.getPhase()
+	delta = bpm_phase-bpm_phases_init_arr[i]
+	if delta < -180:
+		delta += 360
+	elif delta > 180:
+		delta -= 360
 
-#-------------------------------------------------
-#---- To Bee Continued
-#-------------------------------------------------
+	bpm_phases_delta_arr.append(delta)
+	bpm_pos_arr.append(bpm_model.getPosition())
+	st = " %22s  %7.3f   %+6.4f "%(bpm_model.getName(),bpm_model.getPosition(), delta)
+	print (st)
+print ("---------------------------------------")
+
+import matplotlib.pyplot as plt
+
+plt.plot(bpm_pos_arr, bpm_phases_delta_arr)
+plt.show()
 
 sys.exit(0)
